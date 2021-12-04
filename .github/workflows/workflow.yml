@@ -6,7 +6,13 @@ jobs:
   build-and-upload-to-s3:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
+      - name: Update env
+        run: | 
+          VUE_APP_API_URL=${{ secrets.VUE_APP_DEV_API_URL }} && sed -i 's|<VUE_APP_API_URL>|'${VUE_APP_API_URL}'|' $GITHUB_WORKSPACE/.env
+          
       - uses: actions/setup-node@v2
         with:
           node-version: '15'
