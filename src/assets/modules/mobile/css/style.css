@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+#app {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #242a38;
+}
+
+
+input:focus {
+  outline-width: 0;
+}
+
+.input {
+  @apply flex text-gray-600 flex-grow border py-3 px-3 rounded;
+}
+
+
+
+.signin {
+  @apply flex h-screen pb-20;
+  background-color: #f5f5f5;
+}
+
+.signin-content {
+  @apply m-auto w-96;
+
+}
+
+.signin-content .title {
+  @apply text-center m-2;
+}
+
+.signin-content__item {
+  @apply mx-4 flex;
+}
+
+.signin-content__item .top-input {
+  @apply border-b-0 rounded-br-none rounded-bl-none;
+}
+
+.signin-content__item .bottom-input {
+  @apply rounded-tr-none rounded-tl-none;
+}
+
+.signin-content__item--title {
+  @apply text-center justify-center m-2 text-gray-500;
+}
+
+.signin-content__item--action {
+  @apply mt-5 justify-center;
+}
+
+.signin-content__item--alert {
+  @apply text-red-500 text-center justify-center mt-2;
+}
+
+.signin-content__item--copyright {
+  @apply text-center text-gray-500 text-sm justify-center mt-2;
+}
+
+.rotate {
+  animation: rotation 1s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
