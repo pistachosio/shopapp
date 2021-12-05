@@ -1,6 +1,6 @@
 <template>
   <loading v-model:active="isLoading" blur="" :is-full-page="true" />
-  <div class="px-3" v-if="!isLoading">
+  <div class="px-3 pb-4" v-if="!isLoading">
     <div class="py-2 text-gray-500 uppercase">Отзывы</div>
     <div class="">
       <router-link
