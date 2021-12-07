@@ -94,6 +94,7 @@ export default {
       if (this.message == "") {
         return;
       }
+      
       this.storeFeedback({
         message: this.message,
         parentId: parseInt(this.$route.params.id),
