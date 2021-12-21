@@ -1,9 +1,8 @@
 <template>
   <loading v-model:active="isLoading" blur="" :is-full-page="true" />
 
-  <div class="px-3" v-if="!isLoading">
+  <div class="page" v-if="!isLoading">
     <div v-if="feedback.id != undefined">
-      <div class="py-2 text-gray-500 uppercase">Отзыв</div>
       <div v-bind:class="feedback.guestId == 0 ? 'pl-7' : ''">
         <div class="flex-row flex justify-between">
           <div class="flex font-bold text-sm pr-2 items-center text-gray-600">

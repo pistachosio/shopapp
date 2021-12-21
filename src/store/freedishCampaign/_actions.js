@@ -1,32 +1,24 @@
-
 import axios from 'axios';
 
 export default {
-  async signin({
+
+  async getActivatedFreedishCampaigns({
     commit
-  }, payload) {
+  }) {
+
     commit('updateState', {
       isLoading: true,
     });
 
-    try {      
-      const response = await axios.post(`/auth`, {
-        phoneNumber: payload.phoneNumber,
-        smsCode: payload.smsCode,
-      })
-      
+    try {
+      const response = await axios.get(`/freedish-campaigns`)
+
       if (response.data.isOK) {
-        if (payload.smsCode != '') {
-          commit('updateState', {
-            isLoading: false,
-            shop: response.data.shop,
-            isAuthenticated: true,
-          });
-        } else {
-          commit('updateState', {
-            isLoading: false,
-          });
-        }
+
+        commit('updateState', {
+          isLoading: false,
+          freedishCampaigns: response.data.freedishCampaigns != null ? response.data.freedishCampaigns : []
+        });
       } else {
         commit('updateState', {
           isLoading: false,
@@ -42,36 +34,29 @@ export default {
       });
     }
   },
-  async signout({
+
+  async confirmFreedishCampaign({
     commit
-  }) {
-    commit('updateState', {
-      isLoading: false,
-      shop: {},
-      isAuthenticated: false
-    });
-    return;
-  },
-  async me({
-    commit
-  }) {
+  }, payload) {
+
     commit('updateState', {
       isLoading: true,
     });
 
     try {
-      const response = await axios.get(`/me`)
-      
+      const response = await axios.put(`/freedish-campaigns/${payload.freedishCampaignId}`, payload)
+
       if (response.data.isOK) {
+
         commit('updateState', {
           isLoading: false,
-          shop: response.data.shop,
-          isAuthenticated: true,
         });
+
+        commit('removeFreedishCampaign', payload.freedishCampaignGuestId);
       } else {
         commit('updateState', {
           isLoading: false,
-          error: '',
+          error: response.data.message,
         });
       }
 
@@ -79,8 +64,14 @@ export default {
     } catch (err) {
       commit('updateState', {
         isLoading: false,
-        error: '',
+        error: err.message,
       });
     }
+  },
+
+  updateState({
+    commit
+  }, payload) {
+    commit('updateState', payload);
   },
 }

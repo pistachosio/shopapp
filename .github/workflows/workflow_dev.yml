@@ -10,8 +10,10 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Update env
-        run: | 
+        run: |
           VUE_APP_API_URL=${{ secrets.VUE_APP_DEV_API_URL }} && sed -i 's|<VUE_APP_API_URL>|'${VUE_APP_API_URL}'|' $GITHUB_WORKSPACE/.env
+          VUE_APP_TELEGRAM_FEEDBACK_BOT=${{ secrets.VUE_APP_TELEGRAM_FEEDBACK_DEV_BOT }} && sed -i 's|<VUE_APP_TELEGRAM_FEEDBACK_BOT>|'${VUE_APP_TELEGRAM_FEEDBACK_BOT}'|' $GITHUB_WORKSPACE/.env
+          VUE_APP_TELEGRAM_ORDER_BOT=${{ secrets.VUE_APP_TELEGRAM_ORDER_DEV_BOT }} && sed -i 's|<VUE_APP_TELEGRAM_ORDER_BOT>|'${VUE_APP_TELEGRAM_ORDER_BOT}'|' $GITHUB_WORKSPACE/.env
           
       - uses: actions/setup-node@v2
         with:

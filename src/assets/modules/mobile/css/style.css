@@ -73,3 +73,7 @@ input:focus {
     transform: rotate(359deg);
   }
 }
+
+.page {
+  @apply px-3 pb-4 pt-3;
+}

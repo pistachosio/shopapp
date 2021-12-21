@@ -23,10 +23,12 @@ import {
 import {
   faStar,
   faTimes,
-  faCircleNotch
+  faCircleNotch,
+  faSignOutAlt,
+  faPaperPlane,
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faTimes, faStar, faCircleNotch);
+library.add(faTimes, faStar, faCircleNotch, faSignOutAlt, faPaperPlane);
 
 import 'vue-loading-overlay/dist/vue-loading.css';
 import './assets/tailwind.css';
