@@ -42,7 +42,7 @@ if (!isMobile()) {
 import globalProperties from './plugins/globalProperties';
 
 axios.defaults.baseURL = process.env.NODE_ENV == 'development' ?
-  'https://api-dev.pistachos.io/shop' :
+  'https://api-devapp.pistapp.xyz/shop' :
   process.env.VUE_APP_API_URL;
 
 var app = createApp(App);
