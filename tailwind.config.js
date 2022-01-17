@@ -281,6 +281,9 @@ module.exports = {
       '7xl': ['4.5rem', { lineHeight: '1' }],
       '8xl': ['6rem', { lineHeight: '1' }],
       '9xl': ['8rem', { lineHeight: '1' }],
+      '14.5': ['14.5px', { lineHeight: '1.5rem' }],
+      '15': ['15px', { lineHeight: '1.5rem' }],
+      '15.5': ['15.5px', { lineHeight: '1.5rem' }],
     },
     fontWeight: {
       thin: '100',

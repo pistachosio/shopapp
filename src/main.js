@@ -23,10 +23,12 @@ import {
 import {
   faStar,
   faTimes,
-  faCircleNotch
+  faCircleNotch,
+  faSignOutAlt,
+  faPaperPlane,
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faTimes, faStar, faCircleNotch);
+library.add(faTimes, faStar, faCircleNotch, faSignOutAlt, faPaperPlane);
 
 import 'vue-loading-overlay/dist/vue-loading.css';
 import './assets/tailwind.css';
@@ -40,7 +42,7 @@ if (!isMobile()) {
 import globalProperties from './plugins/globalProperties';
 
 axios.defaults.baseURL = process.env.NODE_ENV == 'development' ?
-  'https://api-dev.pistachos.io/shop' :
+  'https://api-devapp.pistapp.xyz/shop' :
   process.env.VUE_APP_API_URL;
 
 var app = createApp(App);

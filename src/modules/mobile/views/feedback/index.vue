@@ -1,13 +1,13 @@
 <template>
   <loading v-model:active="isLoading" blur="" :is-full-page="true" />
-  <div class="px-3" v-if="!isLoading">
-    <div class="py-2 text-gray-500 uppercase">Отзывы</div>
+  <div class="page" v-if="!isLoading">
+    
     <div class="">
       <router-link
         v-for="(feedback, i) in feedbacks"
         :to="`/feedbacks/${feedback.id}`"
         :key="i"
-        class="flex flex-col py-2 text-15"
+        class="flex flex-col pb-2 mb-2 text-15"
         v-bind:class="
           !feedback.isParent
             ? 'border-gray-100 border border-l-0 border-r-0 border-t-0'

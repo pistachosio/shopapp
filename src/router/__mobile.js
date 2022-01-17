@@ -1,6 +1,8 @@
 import Signin from '../modules/mobile/views/signin';
 import FeedbackIndex from '../modules/mobile/views/feedback/index.vue';
 import FeedbackShow from '../modules/mobile/views/feedback/show.vue';
+import CouponIndex from '../modules/mobile/views/coupon/index.vue';
+import TelegramIndex from '../modules/mobile/views/telegram/index.vue';
 
 export default [{
     path: '/',
@@ -26,4 +28,21 @@ export default [{
       requiresAuth: true,
     },
   },
+  {
+    path: '/coupons',
+    name: 'Coupons',
+    component: CouponIndex,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/telegram',
+    name: 'Telegram',
+    component: TelegramIndex,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+
 ];
