@@ -42,7 +42,7 @@
       <router-link
         class="flex flex-row flex-grow py-2 uppercase justify-center"
         v-bind:class="
-          this.$route.name == 'Coupons'
+          this.$route.name == 'Coupons' || this.$route.name == 'Coupon'
             ? 'text-gray-700'
             : 'bg-gray-200 text-gray-400'
         "
