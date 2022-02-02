@@ -2,22 +2,21 @@ import axios from 'axios';
 
 export default {
 
-  async getActivatedFreedishCampaigns({
+  async getCoupons({
     commit
   }) {
-
     commit('updateState', {
       isLoading: true,
     });
 
     try {
-      const response = await axios.get(`/freedish-campaigns`)
+      const response = await axios.get(`/coupons`)
 
       if (response.data.isOK) {
 
         commit('updateState', {
           isLoading: false,
-          freedishCampaigns: response.data.freedishCampaigns != null ? response.data.freedishCampaigns : []
+          coupons: response.data.coupons != null ? response.data.coupons : []
         });
       } else {
         commit('updateState', {
@@ -35,24 +34,26 @@ export default {
     }
   },
 
-  async confirmFreedishCampaign({
+  async confirmCoupon({
     commit
-  }, payload) {
-
+  }, id) {
     commit('updateState', {
       isLoading: true,
     });
 
     try {
-      const response = await axios.put(`/freedish-campaigns/${payload.freedishCampaignId}`, payload)
+      const response = await axios.put(`/coupons/${id}/confirm`)
 
       if (response.data.isOK) {
-
+        
         commit('updateState', {
           isLoading: false,
+          error: '',
         });
 
-        commit('removeFreedishCampaign', payload.freedishCampaignGuestId);
+        commit('confirmCoupon', {
+          id: id
+        })
       } else {
         commit('updateState', {
           isLoading: false,
