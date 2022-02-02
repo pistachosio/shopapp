@@ -48,7 +48,6 @@
             bg-gray-200
             py-2
             rounded
-            pt-2.5
             text-gray-500
           "
         >
