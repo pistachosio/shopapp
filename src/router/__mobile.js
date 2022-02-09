@@ -37,6 +37,14 @@ export default [{
     },
   },
   {
+    path: '/coupons/:id',
+    name: 'Coupon',
+    component: CouponIndex,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
     path: '/telegram',
     name: 'Telegram',
     component: TelegramIndex,
